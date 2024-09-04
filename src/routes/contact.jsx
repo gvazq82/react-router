@@ -4,6 +4,7 @@ import {
   useFetcher,
 } from "react-router-dom";
 import { getContact, updateContact } from "../contacts";
+import PropTypes from 'prop-types';
 
 export async function loader({ params }) {
     const contact = await getContact(params.contactId);
@@ -109,3 +110,7 @@ function Favorite({ contact }) {
     </fetcher.Form>
   );
 }
+
+Favorite.propTypes = {
+  contact: PropTypes.object.isRequired,
+};
